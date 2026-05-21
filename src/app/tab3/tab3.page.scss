@@ -1,0 +1,21 @@
+:host {
+  --ion-background-color: #f5f8ff;
+}
+
+ion-card {
+  --background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 20px rgba(60, 72, 88, 0.08);
+  margin-bottom: 16px;
+}
+
+ion-card[routerLink] {
+  cursor: pointer;
+}
+
+.loading-card,
+.hidden-text {
+  text-align: center;
+  color: var(--ion-color-medium);
+  margin-top: 24px;
+}

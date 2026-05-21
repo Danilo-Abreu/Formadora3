@@ -1,17 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<!-- Cabeçalho da página de produto individual -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Produto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- Se o produto está disponível, mostra o cartão. Caso contrário, mostra o loading. -->
+  <ng-container *ngIf="produto; else loading">
+    <ion-card>
+      <img [src]="produto.imagem" alt="{{ produto.nome }}">
+
+      <ion-card-header>
+        <ion-card-title>{{ produto.nome }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ produto.descricao }}</p>
+        <h2>R$ {{ produto.preco }}</h2>
+      </ion-card-content>
+    </ion-card>
+
+  <!-- Botão para voltar ao produto anterior -->
+  <ion-button
+    expand="block"
+    (click)="anterior()"
+    [disabled]="indice === 0">
+
+    Anterior
+
+  </ion-button>
+
+  <!-- Botão para avançar ao próximo produto -->
+  <ion-button
+    expand="block"
+    color="success"
+    (click)="proximo()"
+    [disabled]="indice === produtos.length - 1">
+
+    Próximo
+
+  </ion-button>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="loading-card">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando produtos...</p>
+    </div>
+  </ng-template>
+
 </ion-content>

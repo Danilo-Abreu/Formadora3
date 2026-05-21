@@ -1,0 +1,18 @@
+:host {
+  --ion-background-color: #fafafa;
+}
+
+ion-card {
+  --background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 22px rgba(17, 85, 204, 0.12);
+}
+
+.loading-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 240px;
+  color: var(--ion-color-medium);
+}

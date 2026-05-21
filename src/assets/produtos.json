@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Notebook Gamer",
+    "preco": 3500,
+    "descricao": "Notebook potente com teclado retroiluminado e placa de vídeo dedicada.",
+    "imagem": "assets/notebook.svg"
+  },
+  {
+    "id": 2,
+    "nome": "Mouse RGB",
+    "preco": 120,
+    "descricao": "Mouse ergonômico com iluminação RGB personalizável.",
+    "imagem": "assets/mouse.svg"
+  },
+  {
+    "id": 3,
+    "nome": "Teclado Mecânico",
+    "preco": 250,
+    "descricao": "Teclado mecânico com switches táteis e estrutura reforçada.",
+    "imagem": "assets/teclado.svg"
+  }
+]

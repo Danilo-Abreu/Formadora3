@@ -1,17 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<!-- Cabeçalho da página com o título principal -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Início</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Cartão com a apresentação pessoal e informações do trabalho -->
+  <ion-card>
+
+    <img src="assets/minhafoto.svg" alt="Minha foto" />
+
+    <ion-card-header>
+      <ion-card-title>Danilo Marcos Abreu da Silva</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Turma: ADS</p>
+      <p>Unidade: Campo Grande</p>
+      <p>Turno: Manhã</p>
+      <p>Palavra-chave: INTEGRADORA 3</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- Navega para a aba de visualização individual de produtos -->
+  <ion-button expand="block" routerLink="/tabs/tab2" routerDirection="forward">
+    Ver produtos individuais
+  </ion-button>
+
 </ion-content>

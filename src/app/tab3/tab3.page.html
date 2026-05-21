@@ -1,17 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Lista</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button expand="block" (click)="mostrarProdutos()" *ngIf="!mostrar">
+    Mostrar Produtos
+  </ion-button>
+
+  <ion-button expand="block" color="danger" (click)="ocultarProdutos()" *ngIf="mostrar">
+    Ocultar Produtos
+  </ion-button>
+
+  <ion-item *ngIf="mostrar">
+    <ion-label position="floating">Filtrar por nome</ion-label>
+    <ion-input [(ngModel)]="filtro" placeholder="Digite o nome do produto"></ion-input>
+  </ion-item>
+
+  <ng-container *ngIf="mostrar; else hidden">
+    <ng-container *ngIf="produtos.length > 0; else loading">
+      <ion-card *ngFor="let produto of produtosFiltrados">
+        <img [src]="produto.imagem" alt="{{ produto.nome }}">
+
+        <ion-card-header>
+          <ion-card-title>{{ produto.nome }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{ produto.descricao }}</p>
+          <h2>R$ {{ produto.preco }}</h2>
+        </ion-card-content>
+
+        <ion-button expand="block" fill="outline" routerLink="/tabs/tab2" routerDirection="forward">
+          Ver no modo individual
+        </ion-button>
+      </ion-card>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="loading-card">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando produtos...</p>
+    </div>
+  </ng-template>
+
+  <ng-template #hidden>
+    <p class="hidden-text">Os produtos estão ocultos. Clique em Mostrar Produtos para ver a lista.</p>
+  </ng-template>
+
 </ion-content>
