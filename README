@@ -1,4 +1,4 @@
-Markdown
+
 # 📱 App de Cursos (Ionic + Angular)
 
 Este projeto é um aplicativo mobile desenvolvido com **Ionic Framework** e **Angular**, utilizando arquitetura moderna de *Standalone Components* e gerenciamento de estado com *Signals*.
@@ -22,5 +22,5 @@ Este projeto é um aplicativo mobile desenvolvido com **Ionic Framework** e **An
 1. **Clone o repositório:**
    
 ```bash
-   git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/seu-usuario/nome-do-projeto.git)
-   cd nome-do-projeto
+   git clone https://github.com/Danilo-Abreu/Formadora3
+   
