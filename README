@@ -1,0 +1,26 @@
+Markdown
+# 📱 App de Cursos (Ionic + Angular)
+
+Este projeto é um aplicativo mobile desenvolvido com **Ionic Framework** e **Angular**, utilizando arquitetura moderna de *Standalone Components* e gerenciamento de estado com *Signals*.
+
+## 🚀 Funcionalidades
+
+- **Navegação em Abas:** Estrutura intuitiva (Início, Cursos, Perfil).
+- **Catálogo de Cursos:** Exibição dinâmica de itens com navegação entre cards.
+- **Design Responsivo:** Interface otimizada com CSS customizado, utilizando cartões modernos e temas em tons de azul.
+- **Interatividade:** Botões de ação com feedback visual e estados de navegação (Anterior/Próximo).
+
+## 🛠 Tecnologias Utilizadas
+
+- **Frontend:** Angular v17+
+- **Mobile:** Ionic Framework
+- **Estilização:** SCSS
+- **Ícones:** Ionicons
+
+## ⚙️ Como Instalar e Rodar
+
+1. **Clone o repositório:**
+   
+```bash
+   git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/seu-usuario/nome-do-projeto.git)
+   cd nome-do-projeto
