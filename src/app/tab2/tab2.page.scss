@@ -1,18 +1,62 @@
+/* 1. Definições Gerais */
 :host {
-  --ion-background-color: #fafafa;
+  --ion-background-color: #020245; /* Azul bem escuro para o fundo da página */
 }
 
+ion-content {
+  --background: var(--ion-background-color);
+}
+
+/* 2. Estilo do Card */
 ion-card {
-  --background: #ffffff;
+  --background: #082c87;         /* Fundo do card sempre branco */
   border-radius: 18px;
-  box-shadow: 0 12px 22px rgba(17, 85, 204, 0.12);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  text-align: center;
+  color: #333333;               /* Texto dentro do card em cinza escuro/preto */
 }
 
+ion-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+ion-card-title {
+  color: #000000;               /* Título do card em preto */
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+ion-card-content {
+  color: #444444;               /* Descrição em cor legível */
+  padding-bottom: 20px;
+}
+
+/* 3. Estilo dos Botões */
+ion-button {
+  margin: 10px 20px;
+  --border-radius: 12px;
+  font-weight: bold;
+  --background: #3880ff;        /* Azul claro padrão do Ionic */
+  --color: #ffffff;             /* Texto do botão em branco */
+}
+
+/* Botão de Avançar (Verde) */
+.btn-avancar {
+  --background: #0b7d38 !important; /* Verde */
+  --color: #ffffff;
+}
+
+/* Estilo para o loading */
 .loading-card {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   min-height: 240px;
-  color: var(--ion-color-medium);
+  color: #150088;
 }

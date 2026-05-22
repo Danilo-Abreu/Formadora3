@@ -1,23 +1,39 @@
-[
-  {
-    "id": 1,
-    "nome": "Notebook Gamer",
-    "preco": 3500,
-    "descricao": "Notebook potente com teclado retroiluminado e placa de vídeo dedicada.",
-    "imagem": "assets/notebook.svg"
-  },
-  {
-    "id": 2,
-    "nome": "Mouse RGB",
-    "preco": 120,
-    "descricao": "Mouse ergonômico com iluminação RGB personalizável.",
-    "imagem": "assets/mouse.svg"
-  },
-  {
-    "id": 3,
-    "nome": "Teclado Mecânico",
-    "preco": 250,
-    "descricao": "Teclado mecânico com switches táteis e estrutura reforçada.",
-    "imagem": "assets/teclado.svg"
-  }
-]
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Curso Python Online",
+      "preco": 299.90,
+      "descricao": "Curso completo de Python para iniciantes",
+      "imagem": "assets/pyt.png"
+    },
+    {
+      "id": 2,
+      "nome": "Curso Html5 + CSS3 Online",
+      "preco": 150.00,
+      "descricao": "Curso completo de Html5 e CSS3 para iniciantes",
+      "imagem": "assets/html.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Curso JavaScript Online",
+      "preco": 250.50,
+      "descricao": "Curso completo de JavaScript para iniciantes",
+      "imagem": "assets/js.png"
+    },
+     {
+       "id": 4,
+       "nome": "Curso React Online",
+       "preco": 350.00,
+       "descricao": "Curso completo de React para iniciantes",
+       "imagem": "assets/react.png"
+    },
+      {
+        "id": 5,
+        "nome": "Curso JAVA Online",
+        "preco": 400.00,
+        "descricao": "Curso completo de JAVA para iniciantes",
+        "imagem": "assets/java.png"
+      }
+  ]
+}

@@ -1,33 +1,39 @@
 <!-- Cabeçalho da página com o título principal -->
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Início</ion-title>
+    <ion-title>Desenvolvedor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <!-- Cartão com a apresentação pessoal e informações do trabalho -->
   <ion-card>
-
-    <img src="assets/minhafoto.svg" alt="Minha foto" />
-
+    <!-- Sua foto na pasta assets -->
+    <img src="assets/foto2.jpg" alt="Minha Foto" style="width: 100%; max-height: 250px; object-fit: cover;" />
+    
     <ion-card-header>
-      <ion-card-title>Danilo Marcos Abreu da Silva</ion-card-title>
+      <!-- Seu Nome Completo -->
+      <ion-card-title>Danilo Abreu</ion-card-title>
+      <ion-card-subtitle>Aluno</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      <p>Turma: ADS</p>
-      <p>Unidade: Campo Grande</p>
-      <p>Turno: Manhã</p>
-      <p>Palavra-chave: INTEGRADORA 3</p>
+      <p><strong>Turma:</strong> ADS</p>
+      <p><strong>Unidade:</strong> Campo Grande</p>
+      <p><strong>Turno:</strong> Manhã</p>
+      <p style="margin-top: 10px; color: var(--ion-color-warning-dark, #e0a800);">
+        <strong>Palavra-Chave:</strong> ....
+      </p>
     </ion-card-content>
-
   </ion-card>
 
-  <!-- Navega para a aba de visualização individual de produtos -->
-  <ion-button expand="block" routerLink="/tabs/tab2" routerDirection="forward">
-    Ver produtos individuais
+  <!-- O botão agora aponta diretamente para a rota da tab2 -->
+  <ion-button 
+    expand="block"
+    fill="outline" 
+    [routerLink]="['/tabs/tab2']" 
+    routerDirection="forward" 
+    style="margin-top: 15px;">
+    Avançar para Cursos
   </ion-button>
 
 </ion-content>

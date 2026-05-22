@@ -1,48 +1,69 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Produto, ProdutosService } from '../services/produtos.service';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonCard, 
+  IonCardHeader, 
+  IonCardTitle, 
+  IonCardContent, 
+  IonButton, 
+  IonSpinner 
+} from '@ionic/angular/standalone';
+import { ProdutosService, Produto } from '../services/produtos.service';
 
-// Tab2 mostra um produto por vez e permite navegar entre os itens.
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-tab2', // 👈 Garantir que está app-tab2
+  templateUrl: './tab2.page.html',
+  styleUrls: ['./tab2.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule]
+  imports: [
+    CommonModule, 
+    IonContent, 
+    IonHeader, 
+    IonToolbar, 
+    IonTitle, 
+    IonCard, 
+    IonCardHeader, 
+    IonCardTitle, 
+    IonCardContent, 
+    IonButton, 
+    IonSpinner
+  ]
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
+  
+  listaProdutos = signal<Produto[]>([]);
+  indice = signal<number>(0);
 
-  produtos: Produto[] = []; // lista de produtos carregada do serviço
-  indice = 0; // índice do produto atualmente exibido
+  produtoAtual = computed(() => {
+    const lista = this.listaProdutos();
+    const idx = this.indice();
+    return lista.length > 0 ? lista[idx] : null;
+  });
 
-  constructor(private produtosService: ProdutosService) {
-    // Assina o serviço para receber produtos assim que o JSON for carregado.
-    this.produtosService.produtos$.subscribe((produtos) => {
-      this.produtos = produtos;
-      // Ajusta o índice se a lista mudar e ficar fora do intervalo.
-      if (this.indice >= produtos.length) {
-        this.indice = produtos.length - 1;
+  constructor(private produtosService: ProdutosService) {}
+
+  ngOnInit() {
+    this.produtosService.produtos$.subscribe(dados => {
+      if (dados && dados.length > 0) {
+        this.listaProdutos.set(dados);
+        this.indice.set(0);
       }
     });
   }
 
-  // Retorna o produto atual com base no índice.
-  get produto() {
-    return this.produtos[this.indice];
-  }
-
-  // Vai para o próximo produto se ainda houver itens.
   proximo() {
-    if (this.indice < this.produtos.length - 1) {
-      this.indice++;
+    if (this.indice() < this.listaProdutos().length - 1) {
+      this.indice.update(valor => valor + 1);
     }
   }
 
-  // Volta para o produto anterior se não estiver no primeiro.
   anterior() {
-    if (this.indice > 0) {
-      this.indice--;
+    if (this.indice() > 0) {
+      this.indice.update(valor => valor - 1);
     }
   }
 }

@@ -1,54 +1,54 @@
-<!-- Cabeçalho da página de produto individual -->
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Produto</ion-title>
+    <ion-title>Cursos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <!-- Se o produto está disponível, mostra o cartão. Caso contrário, mostra o loading. -->
-  <ng-container *ngIf="produto; else loading">
+
+  @if (produtoAtual()) {
     <ion-card>
-      <img [src]="produto.imagem" alt="{{ produto.nome }}">
+      <img [src]="produtoAtual().imagem" [alt]="produtoAtual().nome" style="width: 100%; object-fit: cover; max-height: 220px;" />
 
       <ion-card-header>
-        <ion-card-title>{{ produto.nome }}</ion-card-title>
+        <ion-card-title>{{ produtoAtual().nome }}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <p>{{ produto.descricao }}</p>
-        <h2>R$ {{ produto.preco }}</h2>
+        <p style="font-size: 1.1em; line-height: 1.4; color: var(--ion-color-dark);">
+          {{ produtoAtual().descricao }}
+        </p>
+        
+        <h2 style="color: var(--ion-color-success, #2dd36f); font-weight: bold; margin-top: 15px; font-size: 1.5em;">
+          R$ {{ produtoAtual().preco }}
+        </h2>
       </ion-card-content>
     </ion-card>
 
-  <!-- Botão para voltar ao produto anterior -->
+    <div style="margin-top: 20px;">
   <ion-button
     expand="block"
+    fill="outline"
     (click)="anterior()"
-    [disabled]="indice === 0">
-
+    [disabled]="indice() === 0">
     Anterior
-
   </ion-button>
 
-  <!-- Botão para avançar ao próximo produto -->
+  <!-- Adicione a classe btn-avancar aqui -->
   <ion-button
     expand="block"
-    color="success"
+    class="btn-avancar"
     (click)="proximo()"
-    [disabled]="indice === produtos.length - 1">
-
+    [disabled]="indice() === listaProdutos().length - 1">
     Próximo
-
   </ion-button>
-  </ng-container>
-
-  <ng-template #loading>
-    <div class="loading-card">
+</div>
+  } @else {
+    <div style="text-align: center; margin-top: 50px;">
       <ion-spinner name="crescent"></ion-spinner>
-      <p>Carregando produtos...</p>
+      <p>Carregando cursos...</p>
     </div>
-  </ng-template>
+  }
 
 </ion-content>

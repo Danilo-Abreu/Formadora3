@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { Tab2Page } from './tab2.page';
 
 describe('Tab2Page', () => {
@@ -7,6 +8,14 @@ describe('Tab2Page', () => {
   let fixture: ComponentFixture<Tab2Page>;
 
   beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Tab2Page],
+      providers: [
+        provideHttpClient(),        // CORRIGIDO: Fornece o cliente HTTP pro serviço
+        provideHttpClientTesting()  // CORRIGIDO: Evita requisições reais no teste
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(Tab2Page);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { Tab3Page } from './tab3.page';
 
 describe('Tab3Page', () => {
@@ -7,6 +9,15 @@ describe('Tab3Page', () => {
   let fixture: ComponentFixture<Tab3Page>;
 
   beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Tab3Page],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideRouter([]) // CORRIGIDO: Fornece suporte ao routerLink do botão
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(Tab3Page);
     component = fixture.componentInstance;
     fixture.detectChanges();

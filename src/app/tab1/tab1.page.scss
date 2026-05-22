@@ -1,22 +1,44 @@
 :host {
-  --card-background: #f8f8ff;
-  --ion-background-color: #eef2f7;
+  --card-background: #020245;
+  --ion-background-color: #6e7782;
+}
+
+ion-content {
+  --background: var(--ion-background-color);
 }
 
 ion-card {
   border-radius: 18px;
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.08);
   background: var(--card-background);
+  margin: 20px;
+  text-align: center; /* Centraliza tudo dentro do card */
 }
 
 ion-card img {
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  width: 100%;
-  height: auto;
+  width: 100%;        /* Ocupa a largura total do card */
+  height: 250px;      /* Defina uma altura fixa que fique boa para o seu layout */
+  
+  /* O segredo para não cortar o topo: */
+  object-fit: cover; 
+  object-position: top center; /* Isso força a imagem a manter o topo visível */
+  
+  display: block;
+  margin: 0 auto;
+}
+ion-card-title {
+  font-size: 1.4rem;
+  padding-top: 10px;
+}
+
+ion-card-content {
+  padding-bottom: 20px;
 }
 
 ion-button {
-  margin-top: 16px;
-  --background: #3880ff;
+  margin: 10px 20px;
+  --background: #0f1010;
+  --color-text: #09595d;
+  --border-radius: 12px;
+  font-weight: bold;
 }
